@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+
+.navbar_header {
+  height: 80px;
+  width: 100vw;
+  box-shadow: 2px 2px 20px #000;
+  padding: 0 5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+
+.file_upload_hidden {
+  display: none;
+}
+
+
+
+.title>.title_text {
+  font-weight: bold;
+  font-family: "Freehand", cursive;
+  font-size: 1.25rem;
+  opacity: 1;
+}
+
+.title>.title_text:hover {
+  opacity: 0.9;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  font-weight: 600;
+  margin: 0 2rem;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+}
+
+li:hover {
+  transform: translateY(15%);
+  text-decoration: underline;
+}
+
+li>.links:focus {
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.upload_icon:hover {
+  transform: scale(1.1);
+}
+
+.theme_toggler {
+  background: transparent;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.theme_toggler>.toggler_icon {
+  font-size: 25px;
+
+}
+
+
+.icon_sun {
+  color: #ffffff;
+
+}
+
+.account_icon {
+  font-size: 25px;
+}
+
+
+.logout_text {
+  user-select: none;
+  position: absolute;
+  bottom: -20px;
+  background: black;
+  padding: 2px;
+  color: white;
+  border-radius: 5px;
+  visibility: hidden;
+
+}
+
+.theme_toggler:hover {
+  background-color: #0000001f;
+  transition: all 0.3s ease-in-out;
+
+
+}
+
+
+
+@media screen and (max-width: 868px) {
+  .logout_text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .title {
+    position: absolute;
+    left: 20px;
+  }
+}

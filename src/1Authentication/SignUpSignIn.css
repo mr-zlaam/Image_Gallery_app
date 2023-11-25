@@ -1,0 +1,79 @@
+.main_form {
+        animation: home ease-in-out backwards 2s;
+}
+
+.switch {
+        animation: home ease-in-out backwards 2s;
+}
+
+.signin_signout {
+        padding: 5px 10px;
+        background: #808080;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: all 0.3s linear;
+        box-shadow: 2px 2px 4px #000;
+
+
+
+}
+
+.signin_signout:hover {
+        opacity: 0.7;
+}
+
+
+.input_dark {
+        background: none;
+        border: none;
+        border-bottom: 2px solid white;
+        outline: none;
+        padding: 4px 7px;
+        margin: 10px 0;
+        width: 100%;
+        font-weight: bold;
+}
+
+.input_dark::placeholder {
+        color: white;
+        opacity: 0.5;
+        text-align: center;
+}
+
+.input_light {
+        background: none;
+        border: none;
+        border-bottom: 2px solid black;
+        outline: none;
+        padding: 4px 7px;
+        margin: 10px 0;
+        width: 100%;
+        font-weight: bold;
+}
+
+.input_light::placeholder {
+        color: black;
+        opacity: 0.5;
+        text-align: center;
+}
+
+.shadow_dark {
+        box-shadow: inset 1px 4px 10px #888888;
+
+
+}
+
+.shadow_light {
+        box-shadow: inset 1px 4px 7px #000;
+}
+
+@media screen and (max-width: 376px) {
+        .form {
+                width: 98%;
+        }
+
+        .main_form {
+                padding: 0 20px;
+        }
+}

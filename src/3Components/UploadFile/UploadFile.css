@@ -1,0 +1,66 @@
+.main_uploader_controll {
+        animation: home ease-in-out backwards 2s;
+}
+
+.uploader_label {
+        font-size: 9rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 0.1s linear;
+
+}
+
+.uploader_label:hover {
+        opacity: 1;
+}
+
+.upload_btn {
+        padding: 7px 15px;
+        background-color: gray;
+        font-weight: bold;
+        color: white;
+        font-size: 20px;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        user-select: none;
+
+}
+
+.upload_btn:hover {
+        opacity: 0.8;
+}
+
+.msg {
+        font-size: 14px;
+        position: relative;
+        top: 20px;
+        height: 20px;
+        margin: 5px 0;
+}
+
+.msg>p {
+        height: 100%;
+        width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+        .uploader_label {
+                font-size: 5rem;
+        }
+
+        .upload_btn {
+                font-size: 16px;
+                padding: 5px 11px;
+                font-weight: 600;
+
+        }
+
+        .main_error {
+                font-size: 14px;
+        }
+
+        .msg {
+                font-size: 14px;
+                height: 1.5vh;
+        }
+}

@@ -1,0 +1,21 @@
+.main_page {
+          overflow: hidden;
+
+}
+
+.navbar_controller_main {
+          position: relative;
+          z-index: 100;
+}
+
+.isModalOpen::before {
+          content: "";
+          height: 100vh;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: #000000c7;
+          background: red;
+          z-index: 20;
+}

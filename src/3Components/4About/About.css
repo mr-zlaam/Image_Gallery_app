@@ -1,0 +1,27 @@
+.main_about {
+          animation: home ease-in-out backwards 2s;
+          position: relative;
+          top: 5rem;
+          overflow: auto;
+}
+@media screen and (max-width: 688px) {
+          .main_about {
+                              position: absolute;
+                              top: 90px;
+                    }
+  
+}
+@media screen and (max-width: 438px) {
+          .about_controller {
+                    width: 100%;
+          }
+
+          .h11 {
+                    font-size: 24px;
+          }
+
+          .main_about {
+          position: absolute;
+          top: 90px;
+          }
+}

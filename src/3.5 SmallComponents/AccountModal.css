@@ -1,0 +1,82 @@
+.Account_modal {
+          height: 50vh;
+          width: 40vh;
+          position: absolute;
+          top: -10px;
+          border-radius: 20px;
+          right: -10px;
+}
+
+.AccountModalComponet {
+          position: relative;
+          z-index: 20;
+}
+
+.accountModal_closer::after {
+          content: "";
+          height: 100vh;
+          width: 100%;
+          background: #0000005d;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 19;
+          cursor: default;
+}
+
+@media screen and (max-width: 898px) {
+          .mail_user {
+                    font-size: 15px;
+          }
+
+          .AccountModalComponet {
+                    position: static;
+          }
+
+          .accountModal_closer::after {
+                    display: none;
+          }
+
+          .Account_modal {
+                    top: 10px;
+                    right: 20px;
+          }
+}
+
+@media screen and (max-width: 394px) {
+          .Account_modal {
+                    width: 35vh;
+          }
+}
+
+@media screen and (max-width: 346px) {
+          .Account_modal {
+                    width: 30vh;
+
+          }
+
+          .text_hello_user {
+                    font-size: 24px;
+          }
+
+          .mail_user {
+                    font-size: 13px;
+          }
+
+}
+
+@media screen and (max-width: 296px) {
+          .Account_modal {
+                    width: 20vh;
+
+          }
+
+          .text_hello_user {
+                    font-size: 16px;
+          }
+
+          .mail_user {
+                    font-size: 9px;
+          }
+
+}

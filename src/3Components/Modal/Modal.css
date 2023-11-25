@@ -1,0 +1,61 @@
+.modal_closer_div::before {
+          content: "";
+          height: 100vh;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: #000000c7;
+          z-index: 21;
+
+}
+
+.modal_handler_div {
+          width: fit-content;
+          height: 72.2vh;
+          overflow: hidden;
+          position: absolute;
+          top: 52%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 22;
+
+
+          filter: drop-shadow(0.5rem 0.5rem 0.75rem #000);
+}
+
+.modal_handler_div>img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+  
+}
+
+.back_drop {
+          position: absolute;
+          top: 0;
+          z-index: 90;
+          height: 70vh;
+}
+
+
+
+
+.back_drop>img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+}
+
+@media screen and (max-width: 808px) {
+          .back_drop {
+                    height: fit-content;
+          }
+}
+
+@media screen and (max-width: 508px) {
+          .modal_handler_div {
+                    width: 90%;
+                    height: 52.5vh;
+          }
+}
