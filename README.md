@@ -1,4 +1,4 @@
 # Image Gallery To Upload Images
-##  [Live Demo](https://zlaamgallery.netlify.app/'Image Gallery')
+##  [Live Demo](https://zlaamgallery.netlify.app/)
 
 
