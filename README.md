@@ -1,5 +1,4 @@
 # Image Gallery To Upload Images
+##  [Live Demo](https://zlaamgallery.netlify.app/'Image Gallery')
 
-<h3>
-  <a href "https://zlaamgallery.netlify.app/">Live Demo of website </a>
-<h3>
+
