@@ -7,7 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import ModeSwitcher from "../3Components/1Navbar/jsx/ModeSwitcher";
 import { auth } from "../0Firebase/Firebaseconfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import "ldrs/helix";
+
+import Loader from "../Loader/Loader";
 const SignsUp = () => {
   const navigate = useNavigate();
   const { isDarkMode, loading, setLoading } = useContext(ThemeContext);
@@ -76,11 +77,7 @@ const SignsUp = () => {
           </h1>
           {loading ? (
             <div className="h-[80vh] flex justify-center items-center flex-col">
-              <l-helix
-                size="55"
-                speed="2.5"
-                color={`${isDarkMode ? "white" : "black"}`}
-              ></l-helix>
+              <Loader />
               <span className="text-sm mt-3 font-semibold ">
                 Creating new User Account...
               </span>

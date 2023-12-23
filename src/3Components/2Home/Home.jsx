@@ -12,28 +12,30 @@ const Home = () => {
           <div className="desc_home">
             <h1 className="font-bold cursor-default">
               Explore a world of captivating images. Immerse yourself in
-              artistry and photography on
-              <Link
-                to={"/images"}
-                className={`${
-                  isDarkMode ? "text-blue-300" : "text-blue-600"
-                } cursor-pointer hover:opacity-80 ${
-                  isDarkMode ? "blue_description" : "blue_description_light"
-                } gallery`}
-              >
-                {" "}
-                Zlaam Gallery
+              artistry and photography on{" "}
+              <Link to={"/images"} class="cta">
+                <span
+                  class={` hover-underline-animation ${
+                    isDarkMode ? "text-blue-400" : "text-blue-500"
+                  }`}
+                >
+                  Zlaam Gallery
+                </span>
               </Link>
             </h1>
           </div>
           <div className="image_homeControll">
             <div className="home_img_div">
-              <img src="./png.jpg" alt="gallery_image" width={400} />
+              <img
+                src="https://live.staticflickr.com/65535/53415630457_ff291bac9c_z.jpg"
+                alt="gallery_image"
+                width={300}
+              />
             </div>
           </div>
         </div>
         <div className="home_btn_div">
-          <button className="home_btn">
+          <button className="home_btn ">
             <Link to={"login"}>GetStarted</Link>
           </button>
         </div>

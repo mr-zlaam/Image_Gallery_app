@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "ldrs/helix";
 
 import { v4 } from "uuid";
+import Loader from "../../Loader/Loader";
 const UploadFile = () => {
   const [imgUpload, setImgUpload] = useState(null);
   const [isloading, setIsloading] = useState(false);
@@ -65,11 +66,7 @@ const UploadFile = () => {
           <div>
             {isloading ? (
               <div className="h-[80vh] flex justify-center items-center flex-col">
-                <l-helix
-                  size="55"
-                  speed="2.5"
-                  color={`${isDarkMode ? "white" : "black"}`}
-                ></l-helix>
+                <Loader />
                 <span className="text-sm mt-3 font-semibold ">
                   Uploading...
                 </span>

@@ -15,9 +15,9 @@ const MyRoutes = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignsUp />} />
-        <Route path="/" element={<RouteProtector Component={Home} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/images" element={<RouteProtector Component={Images} />} />
-        <Route path="/about" element={<RouteProtector Component={About} />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/upload"
           element={<RouteProtector Component={UploadFile} />}

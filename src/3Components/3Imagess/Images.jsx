@@ -12,15 +12,11 @@ import {
 import "ldrs/cardio";
 import { ThemeContext } from "../../1Context/Context";
 import { Link } from "react-router-dom";
+import Loader from "../../Loader/Loader";
 
 const Images = () => {
-  const {
-    isDarkMode,
-    isSelectedImg,
-    setIsSelectedImg,
-    isModalOpen,
-    setIsModalOpen,
-  } = useContext(ThemeContext);
+  const { isSelectedImg, setIsSelectedImg, isModalOpen, setIsModalOpen } =
+    useContext(ThemeContext);
   const [imgData, setImgData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -78,13 +74,7 @@ const Images = () => {
     <>
       {isLoading ? (
         <div className="h-[80vh] flex justify-center items-center flex-col">
-          <l-cardio
-            size="100"
-            stroke="5"
-            speed="3"
-            color={`${isDarkMode ? "white" : "black"}`}
-          ></l-cardio>
-          <div className="text-center">Loading...</div>
+          <Loader />
         </div>
       ) : (
         <div>

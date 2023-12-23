@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import "ldrs/helix";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../1Context/Context";
 import "./SignUpSignIn.css";
@@ -7,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ModeSwitcher from "../3Components/1Navbar/jsx/ModeSwitcher";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../0Firebase/Firebaseconfig";
+import Loader from "../Loader/Loader";
 
 //???????????????????????????????????????????????????????????????????????????
 
@@ -44,7 +44,7 @@ const Login = () => {
       setTimeout(() => {
         setSuccessMsg("");
       }, 3000);
-      navigate("/");
+      navigate("/images");
     } catch (error) {
       setCatchError("⚠❎ Something Went Wrong");
       console.log(error);
@@ -58,11 +58,7 @@ const Login = () => {
       </div>
       {loading ? (
         <div className="h-[80vh] flex justify-center items-center flex-col">
-          <l-helix
-            size="55"
-            speed="2.5"
-            color={`${isDarkMode ? "white" : "black"}`}
-          ></l-helix>
+          <Loader />
           <span className="text-sm mt-3 font-semibold ">Wait a Moment...</span>
         </div>
       ) : (

@@ -70,7 +70,7 @@ const AccountModal = ({ AccountCloseModal }) => {
             ${!isDarkMode ? "text-white" : "text-black"}
             `}
             >
-              Logout
+              {!userData?.email ? <span>Login</span> : <span>Logout</span>}
             </span>
           </div>
         </div>

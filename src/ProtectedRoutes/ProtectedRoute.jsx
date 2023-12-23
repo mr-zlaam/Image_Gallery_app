@@ -4,11 +4,12 @@ import { ThemeContext } from "../1Context/Context";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../0Firebase/Firebaseconfig";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const RouteProtector = (props) => {
   const { Component } = props;
   const navigate = useNavigate();
-  const { setUserData, isDarkMode } = useContext(ThemeContext);
+  const { setUserData } = useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,11 +24,7 @@ const RouteProtector = (props) => {
   if (loading) {
     <>
       <div className="h-[80vh] flex justify-center items-center flex-col">
-        <l-helix
-          size="55"
-          speed="2.5"
-          color={`${isDarkMode ? "white" : "black"}`}
-        ></l-helix>
+        <Loader />
         <span className="text-sm mt-3 font-semibold ">Wait a Moment...</span>
       </div>
     </>;

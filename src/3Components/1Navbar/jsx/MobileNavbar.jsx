@@ -6,7 +6,6 @@ import { BsUpload } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../../1Context/Context";
 import LogoutIcon from "../../../3.5 SmallComponents/Logout";
-// import { RiLogoutCircleRLine } from "react-icons/ri";
 const MobileNavbar = ({ setIsOpenMenu, isOpenMenu }) => {
   const { isDarkMode } = useContext(ThemeContext);
   const Close_menu = () => {
@@ -58,9 +57,7 @@ const MobileNavbar = ({ setIsOpenMenu, isOpenMenu }) => {
             <ModeSwitcher />
           </span>
           <span className="theme_toggler">
-            {/* <RiLogoutCircleRLine className="account_icon  cursor-pointer relative" /> */}
             <LogoutIcon />
-            {/* <span className="logout_text">logout</span> */}
           </span>
         </ul>
       </div>
