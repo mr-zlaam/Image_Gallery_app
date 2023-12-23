@@ -56,7 +56,7 @@ const About = () => {
                 </p>
                 <br />
                 <span className="text-2xl font-bold text-center block">
-                  Mail:{" "}
+                  Mail Us:{" "}
                   <a
                     className={`${
                       isDarkMode ? "text-indigo-300" : "text-indigo-600"
