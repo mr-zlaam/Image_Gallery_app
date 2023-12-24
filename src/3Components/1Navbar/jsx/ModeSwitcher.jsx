@@ -10,33 +10,23 @@ const ModeSwitcher = () => {
     setIsDarkMode(storedDarkMode === "true");
   }, [setIsDarkMode]);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prevDarkMode) => {
-      const newDarkMode = !prevDarkMode;
+  const toggleThemeMode = () => {
+    setIsDarkMode((prevmode) => {
+      const newDarkMode = !prevmode;
       localStorage.setItem("isDarkMode", newDarkMode);
       return newDarkMode;
     });
   };
-
-  const toggleLightMode = () => {
-    setIsDarkMode((prevDarkMode) => {
-      const newDarkMode = !prevDarkMode;
-      console.log(newDarkMode);
-      localStorage.setItem("isDarkMode", newDarkMode);
-      return newDarkMode;
-    });
-  };
-
   return (
     <div className="theme_toggler">
       {isDarkMode ? (
         <BsSunFill
-          onClick={toggleLightMode}
+          onClick={toggleThemeMode}
           className="icon_sun cursor-pointer toggler_icon"
         />
       ) : (
         <BsFillMoonFill
-          onClick={toggleDarkMode}
+          onClick={toggleThemeMode}
           className="icon_moon cursor-pointer toggler_icon"
         />
       )}
