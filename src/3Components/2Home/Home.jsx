@@ -19,7 +19,7 @@ const Home = () => {
                     isDarkMode ? "text-blue-400" : "text-blue-500"
                   }`}
                 >
-                  class Zlaam Gallery
+                  Zlaam Gallery
                 </span>
               </Link>
             </h1>
