@@ -13,13 +13,13 @@ const Home = () => {
             <h1 className="font-bold cursor-default">
               Explore a world of captivating images. Immerse yourself in
               artistry and photography on{" "}
-              <Link to={"/images"} class="cta">
+              <Link to={"/images"} className="cta">
                 <span
-                  class={` hover-underline-animation ${
+                  className={` hover-underline-animation ${
                     isDarkMode ? "text-blue-400" : "text-blue-500"
                   }`}
                 >
-                  Zlaam Gallery
+                  class Zlaam Gallery
                 </span>
               </Link>
             </h1>

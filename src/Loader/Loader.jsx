@@ -5,49 +5,49 @@ const Loader = () => {
   const { isDarkMode } = useContext(ThemeContext);
   return (
     <>
-      <div class="loader">
+      <div className="loader">
         <div
-          class={` ${
+          className={` ${
             isDarkMode ? "loader-square-dark" : "loader-square-light"
           }`}
         ></div>
         <div
-          class={`${
+          className={`${
             isDarkMode
               ? "loader-square-dark loader-square"
               : "loader-square-light loader-square"
           }`}
         ></div>
         <div
-          class={`${
+          className={`${
             isDarkMode
               ? "loader-square-dark loader-square"
               : "loader-square-light loader-square"
           }`}
         ></div>
         <div
-          class={`${
+          className={`${
             isDarkMode
               ? "loader-square-dark loader-square"
               : "loader-square-light loader-square"
           }`}
         ></div>
         <div
-          class={`${
+          className={`${
             isDarkMode
               ? "loader-square-dark loader-square"
               : "loader-square-light loader-square"
           }`}
         ></div>
         <div
-          class={`${
+          className={`${
             isDarkMode
               ? "loader-square-dark loader-square"
               : "loader-square-light loader-square"
           }`}
         ></div>
         <div
-          class={`${
+          className={`${
             isDarkMode
               ? "loader-square-dark loader-square"
               : "loader-square-light loader-square"
