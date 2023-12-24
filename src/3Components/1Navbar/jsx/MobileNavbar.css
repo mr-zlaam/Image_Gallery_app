@@ -32,17 +32,15 @@
   .res_list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-
+    justify-content: space-evenly;
+    padding: 3rem 0;
     align-items: center;
     height: 100%;
     width: 100%;
     font-size: 24px;
+    box-shadow: 2px 2px 14px #000;
   }
-  .res_list > li {
-    margin-top: 1rem;
-  }
+
   li {
     cursor: pointer;
   }

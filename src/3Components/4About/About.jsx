@@ -44,7 +44,7 @@ const About = () => {
                 to get in touch with us.
                 <br />
                 <p className="text-center">
-                  <span className="font-bold text-2xl">Wanna chat: </span>
+                  <span className="font-bold text-2xl chat">Wanna chat: </span>
                   <a
                     href="https://itszlaam.netlify.app/contact"
                     className={`${
@@ -58,13 +58,13 @@ const About = () => {
                 <span className="text-2xl font-bold text-center block">
                   Mail Us:{" "}
                   <a
-                    className={`${
+                    className={` mail ${
                       isDarkMode ? "text-indigo-300" : "text-indigo-600"
                     } hover:underline`}
                     href="mailto:mrzalaam@gmail.com"
                   >
                     mrzalaam@gmail.com
-                  </a>{" "}
+                  </a>
                 </span>
               </p>
             </div>
