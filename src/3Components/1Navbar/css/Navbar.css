@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Freehand&display=swap");
 
 .navbar_header {
   height: 80px;
@@ -7,24 +7,22 @@
   padding: 0 5rem;
   position: sticky;
   top: 0;
+
   left: 0;
 }
-
 
 .file_upload_hidden {
   display: none;
 }
 
-
-
-.title>.title_text {
+.title > .title_text {
   font-weight: bold;
   font-family: "Freehand", cursive;
   font-size: 1.25rem;
   opacity: 1;
 }
 
-.title>.title_text:hover {
+.title > .title_text:hover {
   opacity: 0.9;
 }
 
@@ -53,7 +51,7 @@ li:hover {
   text-decoration: underline;
 }
 
-li>.links:focus {
+li > .links:focus {
   transform: scale(1.1);
   text-decoration: underline;
 }
@@ -68,24 +66,19 @@ li>.links:focus {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
 }
 
-.theme_toggler>.toggler_icon {
+.theme_toggler > .toggler_icon {
   font-size: 25px;
-
 }
-
 
 .icon_sun {
   color: #ffffff;
-
 }
 
 .account_icon {
   font-size: 25px;
 }
-
 
 .logout_text {
   user-select: none;
@@ -96,17 +89,12 @@ li>.links:focus {
   color: white;
   border-radius: 5px;
   visibility: hidden;
-
 }
 
 .theme_toggler:hover {
   background-color: #0000001f;
   transition: all 0.3s ease-in-out;
-
-
 }
-
-
 
 @media screen and (max-width: 868px) {
   .logout_text {
