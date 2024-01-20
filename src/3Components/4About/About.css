@@ -1,5 +1,5 @@
 .main_about {
-  animation: home ease-in-out backwards 2s;
+  animation: home ease-in-out backwards 0.5s;
   overflow: auto;
   margin-top: 20px;
 }

@@ -1,41 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Freehand&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
 
 /*  Css variables */
 .light_mode {
-          background: #e792a0;
-          background: -moz-linear-gradient(90deg, #dbe051 0%, #989898 100%);
-          background: -webkit-linear-gradient(90deg, #a8021e 0%, #acabab 100%);
-          background: linear-gradient(90deg, #dfe2cf 0%, #fefdf0 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffc0cb", endColorstr="#ffffff", GradientType=1);
-          color: #052101;
+  background: #e792a0;
+  background: -moz-linear-gradient(90deg, #dbe051 0%, #989898 100%);
+  background: -webkit-linear-gradient(90deg, #a8021e 0%, #acabab 100%);
+  background: linear-gradient(90deg, #dfe2cf 0%, #fefdf0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffc0cb", endColorstr="#ffffff", GradientType=1);
+  color: #052101;
 }
 
 .dark_mode {
-          background: #f8ced5;
-          background: -moz-linear-gradient(354deg, #71595d 0%, #092537 100%);
-          background: -webkit-linear-gradient(354deg, #89666c 0%, rgba(9, 37, 55, 1) 100%);
-          background: linear-gradient(354deg, #a1797f 0%, rgba(9, 37, 55, 1) 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffc0cb", endColorstr="#092537", GradientType=1);
-          color: #cafbc5;
-
+  background: #f8ced5;
+  background: -moz-linear-gradient(354deg, #71595d 0%, #092537 100%);
+  background: -webkit-linear-gradient(
+    354deg,
+    #89666c 0%,
+    rgba(9, 37, 55, 1) 100%
+  );
+  background: linear-gradient(354deg, #a1797f 0%, rgba(9, 37, 55, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffc0cb", endColorstr="#092537", GradientType=1);
+  color: #cafbc5;
 }
 
 body {
-          overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .text_dark_mode {
-          color: white;
+  color: white;
 }
 
 .text_light_mode {
-          color: #000;
+  color: #000;
 }
 
 *::selection {
-          background: #808080ce;
-          color: white;
+  background: #808080ce;
+  color: white;
 }

@@ -3,7 +3,7 @@
 .main_home {
   padding: 20px;
   overflow: auto;
-  animation: home ease-in-out backwards 2s;
+  animation: home ease-in-out backwards 0.5s;
   height: 88vh;
 }
 
@@ -14,7 +14,7 @@
 @keyframes home {
   0% {
     opacity: 0;
-    transform: translateY(30%);
+    transform: translateY(2%);
   }
 
   100% {
