@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import "./UploadFile.css";
 import { storage } from "../../0Firebase/Firebaseconfig";
@@ -54,7 +54,10 @@ const UploadFile = () => {
       setinternetError("⚠ Intrenet is too slow");
     }
   };
-
+  useEffect(() => {
+    const pageName = "Zlaam Gallery | Upload";
+    document.title = pageName;
+  }, []);
   return (
     <>
       <div className="main_uploader_controll">

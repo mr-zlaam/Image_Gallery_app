@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../1Context/Context";
 import "./About.css";
 const About = () => {
   const { isDarkMode } = useContext(ThemeContext);
-
+  useEffect(() => {
+    const pageName = "Zlaam Gallery | About";
+    document.title = pageName;
+  }, []);
   return (
     <>
       <div className="h-[85vh] w-full overflow-auto p-5 main_about ">

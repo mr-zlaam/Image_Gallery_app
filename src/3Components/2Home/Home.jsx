@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Home.css";
 import { ThemeContext } from "../../1Context/Context";
 import { Link } from "react-router-dom";
 const Home = () => {
+  useEffect(() => {
+    const pageName = "Zlaam Gallery | Home";
+    document.title = pageName;
+  }, []);
   const { isDarkMode } = useContext(ThemeContext);
 
   return (

@@ -49,6 +49,8 @@ const Images = () => {
       }
     };
     fetchImages();
+    const pageName = "Zlaam Gallery | Images";
+    document.title = pageName;
   }, []);
 
   const handleDeleteImage = async (imageName) => {
