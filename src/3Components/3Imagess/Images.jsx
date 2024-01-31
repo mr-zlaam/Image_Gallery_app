@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Images.css";
-import { storage } from "../../0Firebase/Firebaseconfig";
+import { auth, storage, db } from "../../0Firebase/Firebaseconfig";
 import { BsTrash3 } from "react-icons/bs";
 import {
   getDownloadURL,
@@ -13,15 +13,19 @@ import "ldrs/cardio";
 import { ThemeContext } from "../../1Context/Context";
 import { Link } from "react-router-dom";
 import Loader from "../../Loader/Loader";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 
 const Images = () => {
-  const { isSelectedImg, setIsSelectedImg, isModalOpen, setIsModalOpen } =
-    useContext(ThemeContext);
+  const {
+    setIsSelectedImg,
+    isModalOpen,
+    setIsModalOpen,
+    uploadedByCurrentUser,
+  } = useContext(ThemeContext);
   const [imgData, setImgData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const ImageListRef = ref(storage, "webimages/");
-
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -30,14 +34,28 @@ const Images = () => {
           const url = await getDownloadURL(item);
           const metadata = await getMetadata(item);
           const name = metadata.name;
-          const imgInfo = {
-            name: name,
-            url: url,
-          };
-          return imgInfo;
+
+          // Check if the image was uploaded by the current user
+          if (
+            metadata?.customMetadata?.uploadedBy === auth.currentUser?.email
+          ) {
+            const imgInfo = {
+              name: name,
+              url: url,
+            };
+            return imgInfo;
+          }
+          return null; // Return null for images not uploaded by the current user
         });
+
         const imageData = await Promise.all(promises);
-        setImgData(imageData);
+
+        // Filter out null values (images not uploaded by the current user)
+        const filteredImageData = imageData.filter(
+          (imgInfo) => imgInfo !== null
+        );
+
+        setImgData(filteredImageData);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(true);
@@ -49,15 +67,17 @@ const Images = () => {
       }
     };
     fetchImages();
+    //* fetching the data from firestore
     const pageName = "Zlaam Gallery | Images";
     document.title = pageName;
   }, []);
 
-  const handleDeleteImage = async (imageName) => {
+  const handleDeleteImage = async (imageName, id) => {
     const imageRef = ref(storage, `webimages/${imageName}`);
-
+    // const deleteDocs = doc(db, "users", id);
     try {
       await deleteObject(imageRef);
+      // await deleteDoc(deleteDocs);
       setImgData((prevData) =>
         prevData.filter((imgInfo) => imgInfo.name !== imageName)
       );
@@ -69,7 +89,6 @@ const Images = () => {
   const FullImageModal = (imgInfo) => {
     setIsModalOpen(true);
     setIsSelectedImg(imgInfo);
-    console.log(isSelectedImg);
   };
 
   return (
@@ -102,26 +121,28 @@ const Images = () => {
                     isModalOpen ? "overflow-hidden " : "overflow-auto"
                   }`}
                 >
-                  {imgData.map((imgInfo) => (
-                    <div className="card" key={imgInfo.url}>
-                      <Link className="card_child relative">
-                        <img
-                          key={imgInfo.url}
-                          src={imgInfo.url}
-                          alt={imgInfo.name}
-                          width={300}
-                          onClick={() => FullImageModal(imgInfo.url)}
-                        />
-                      </Link>
-                      <div className="dlt_div">
-                        <button
-                          onClick={() => handleDeleteImage(imgInfo.name)}
-                          className="signin_signout delete_btn"
-                        >
-                          <BsTrash3 size={25} />
-                        </button>
+                  {imgData?.map((imgInfo, index) => (
+                    <React.Fragment key={imgInfo.url}>
+                      <div className="card">
+                        <Link className="card_child relative">
+                          <img
+                            key={imgInfo.url}
+                            src={imgInfo.url}
+                            alt={imgInfo.name}
+                            width={300}
+                            onClick={() => FullImageModal(imgInfo.url)}
+                          />
+                        </Link>
+                        <div className="dlt_div">
+                          <button
+                            onClick={() => handleDeleteImage(imgInfo.name)}
+                            className="signin_signout delete_btn"
+                          >
+                            <BsTrash3 size={25} />
+                          </button>
+                        </div>
                       </div>
-                    </div>
+                    </React.Fragment>
                   ))}
                 </div>
               )}

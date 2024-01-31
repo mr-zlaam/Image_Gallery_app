@@ -46,8 +46,8 @@ const Login = () => {
       }, 3000);
       navigate("/images");
     } catch (error) {
-      setCatchError("⚠❎ Something Went Wrong");
-      console.log(error);
+      setCatchError("⚠❎ Please Create Account First");
+
       setLoading(false);
     }
   };

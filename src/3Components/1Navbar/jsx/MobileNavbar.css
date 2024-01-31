@@ -94,7 +94,7 @@
     top: 5px;
     height: 99vh;
     width: 75%;
-    right: -200%;
+    right: -100%;
     position: absolute;
     animation: slideIn;
     transition: right 0.4s linear;

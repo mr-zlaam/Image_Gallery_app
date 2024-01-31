@@ -39,7 +39,6 @@ const SignsUp = () => {
       setLoading(true);
       const user = await createUserWithEmailAndPassword(auth, email, password);
       setLoading(false);
-      console.log(user);
       setSuccessMsg("✅ Account Created Successfully");
       setTimeout(() => {
         setSuccessMsg("");
@@ -62,7 +61,7 @@ const SignsUp = () => {
       </div>
       <div className="main_form flex justify-center items-center h-[85vh] flex-col">
         <div
-          className={` form h-[50vh] ${
+          className={`form h-[50vh] ${
             isDarkMode ? "bg-black/30" : "light_mode"
           }  rounded-lg w-[375px] flex flex-col justify-center items-center px-5 ${
             isDarkMode ? "shadow_dark" : "shadow_light"

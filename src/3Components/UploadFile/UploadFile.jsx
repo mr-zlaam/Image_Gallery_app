@@ -1,24 +1,29 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import "./UploadFile.css";
-import { storage } from "../../0Firebase/Firebaseconfig";
-import { ref, uploadBytes } from "firebase/storage";
+import { auth, db, storage } from "../../0Firebase/Firebaseconfig";
+import { ref, updateMetadata, uploadBytes } from "firebase/storage";
 import { ThemeContext } from "../../1Context/Context";
 import { useNavigate } from "react-router-dom";
-import "ldrs/helix";
 
 import { v4 } from "uuid";
 import Loader from "../../Loader/Loader";
+
 const UploadFile = () => {
   const [imgUpload, setImgUpload] = useState(null);
   const [isloading, setIsloading] = useState(false);
   const [error, setError] = useState("Images Must be in Png/Jpeg format");
   const [successMsg, setSuccessMsg] = useState("");
   const [emptyError, setEmptyError] = useState("");
-  const [internetError, setinternetError] = useState("");
+  const [internetError, setInternetError] = useState("");
+  const { isDarkMode, uploadedByCurrentUser, setUploadedByCurrentUser } =
+    useContext(ThemeContext);
   const navigate = useNavigate();
-
-  const { isDarkMode } = useContext(ThemeContext);
+  const currentUser = auth.currentUser?.email;
+  useEffect(() => {
+    const pageName = "Zlaam Gallery | Upload";
+    document.title = pageName;
+  }, [currentUser]);
   const handleOnchageUploader = (event) => {
     let types = ["image/jpeg", "image/png"];
     let selected = event.target.files[0];
@@ -30,19 +35,37 @@ const UploadFile = () => {
       setImgUpload(null);
     }
   };
-  const UploadImgFromFirebase = async () => {
+
+  const UploadImgToFirebase = async () => {
     try {
+      const currentUserEmail = auth.currentUser?.email;
+
+      if (!currentUserEmail) {
+        // Handle the case where the user is not authenticated
+        return;
+      }
+
       if (imgUpload === null) {
         setEmptyError("⚠ Please Select an Image");
-
         setTimeout(() => {
           setEmptyError("");
         }, 1500);
         return;
       }
+
       const ImageRef = ref(storage, `webimages/${imgUpload.name + v4()}`);
+
+      // Upload the image bytes
       setIsloading(true);
       await uploadBytes(ImageRef, imgUpload);
+
+      // Set custom metadata with the user's email
+      await updateMetadata(ImageRef, {
+        customMetadata: {
+          uploadedBy: currentUserEmail,
+        },
+      });
+
       setIsloading(false);
       setSuccessMsg("✅ Image Uploaded Successfully");
       setImgUpload(null);
@@ -51,13 +74,11 @@ const UploadFile = () => {
       }, 1000);
     } catch (error) {
       setIsloading(false);
-      setinternetError("⚠ Intrenet is too slow");
+      console.log("Upload error:", error);
+      setInternetError("⚠ Internet is too slow");
     }
   };
-  useEffect(() => {
-    const pageName = "Zlaam Gallery | Upload";
-    document.title = pageName;
-  }, []);
+
   return (
     <>
       <div className="main_uploader_controll">
@@ -79,6 +100,7 @@ const UploadFile = () => {
                 <input
                   type="file"
                   id="upload"
+                  accept="image/*"
                   className="hidden"
                   onChange={(event) => {
                     handleOnchageUploader(event);
@@ -91,7 +113,7 @@ const UploadFile = () => {
                     </label>
                   ) : (
                     <button
-                      onClick={UploadImgFromFirebase}
+                      onClick={UploadImgToFirebase}
                       className="upload_btn"
                     >
                       Upload Image
@@ -111,10 +133,14 @@ const UploadFile = () => {
                   >
                     <span className="main_error">{error && error}</span>
                     <span className="msg  items-center  flex">
-                      <p className="text-center">{successMsg && successMsg}</p>
+                      <span className="text-center">
+                        {successMsg && successMsg}
+                      </span>
                     </span>
                     <span className="msg h-[1.5vh] items-center  flex mt-2 ">
-                      <p className="text-center">{emptyError && emptyError}</p>
+                      <span className="text-center">
+                        {emptyError && emptyError}
+                      </span>
                     </span>
                   </p>
                 </div>

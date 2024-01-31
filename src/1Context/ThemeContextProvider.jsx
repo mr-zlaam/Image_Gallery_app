@@ -9,9 +9,12 @@ const ThemeContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [userData, setUserData] = useState({});
+  const [uploadedByCurrentUser, setUploadedByCurrentUser] = useState("");
   return (
     <ThemeContext.Provider
       value={{
+        uploadedByCurrentUser,
+        setUploadedByCurrentUser,
         isDarkMode,
         setIsDarkMode,
         isSelectedImg,
