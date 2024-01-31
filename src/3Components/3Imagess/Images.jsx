@@ -13,15 +13,10 @@ import "ldrs/cardio";
 import { ThemeContext } from "../../1Context/Context";
 import { Link } from "react-router-dom";
 import Loader from "../../Loader/Loader";
-import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 
 const Images = () => {
-  const {
-    setIsSelectedImg,
-    isModalOpen,
-    setIsModalOpen,
-    uploadedByCurrentUser,
-  } = useContext(ThemeContext);
+  const { setIsSelectedImg, isModalOpen, setIsModalOpen } =
+    useContext(ThemeContext);
   const [imgData, setImgData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -35,7 +30,6 @@ const Images = () => {
           const metadata = await getMetadata(item);
           const name = metadata.name;
 
-          // Check if the image was uploaded by the current user
           if (
             metadata?.customMetadata?.uploadedBy === auth.currentUser?.email
           ) {
@@ -45,12 +39,11 @@ const Images = () => {
             };
             return imgInfo;
           }
-          return null; // Return null for images not uploaded by the current user
+          return null;
         });
 
         const imageData = await Promise.all(promises);
 
-        // Filter out null values (images not uploaded by the current user)
         const filteredImageData = imageData.filter(
           (imgInfo) => imgInfo !== null
         );
@@ -67,17 +60,17 @@ const Images = () => {
       }
     };
     fetchImages();
-    //* fetching the data from firestore
+
     const pageName = "Zlaam Gallery | Images";
     document.title = pageName;
   }, []);
 
   const handleDeleteImage = async (imageName, id) => {
     const imageRef = ref(storage, `webimages/${imageName}`);
-    // const deleteDocs = doc(db, "users", id);
+
     try {
       await deleteObject(imageRef);
-      // await deleteDoc(deleteDocs);
+
       setImgData((prevData) =>
         prevData.filter((imgInfo) => imgInfo.name !== imageName)
       );

@@ -42,7 +42,7 @@ ul {
 li {
   font-weight: 600;
   margin: 0 2rem;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   user-select: none;
 }
 
@@ -62,10 +62,10 @@ li > .links:focus {
 
 .theme_toggler {
   background: transparent;
-  padding: 10px;
+  padding: 7px;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .theme_toggler > .toggler_icon {
@@ -92,8 +92,7 @@ li > .links:focus {
 }
 
 .theme_toggler:hover {
-  background-color: #0000001f;
-  transition: all 0.3s ease-in-out;
+  background-color: #00000051;
 }
 
 @media screen and (max-width: 868px) {

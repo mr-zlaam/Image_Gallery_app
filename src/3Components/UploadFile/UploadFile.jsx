@@ -16,8 +16,7 @@ const UploadFile = () => {
   const [successMsg, setSuccessMsg] = useState("");
   const [emptyError, setEmptyError] = useState("");
   const [internetError, setInternetError] = useState("");
-  const { isDarkMode, uploadedByCurrentUser, setUploadedByCurrentUser } =
-    useContext(ThemeContext);
+  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const currentUser = auth.currentUser?.email;
   useEffect(() => {
@@ -41,7 +40,6 @@ const UploadFile = () => {
       const currentUserEmail = auth.currentUser?.email;
 
       if (!currentUserEmail) {
-        // Handle the case where the user is not authenticated
         return;
       }
 
@@ -55,11 +53,9 @@ const UploadFile = () => {
 
       const ImageRef = ref(storage, `webimages/${imgUpload.name + v4()}`);
 
-      // Upload the image bytes
       setIsloading(true);
       await uploadBytes(ImageRef, imgUpload);
 
-      // Set custom metadata with the user's email
       await updateMetadata(ImageRef, {
         customMetadata: {
           uploadedBy: currentUserEmail,
