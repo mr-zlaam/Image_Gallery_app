@@ -46,7 +46,8 @@ const Modal = () => {
             initial={{ y: "-100vh" }}
             animate={{ y: "0vh" }}
             src={isSelectedImg}
-            alt=""
+            alt={isSelectedImg.name}
+            loading="lazy"
           />
         )}
       </motion.div>

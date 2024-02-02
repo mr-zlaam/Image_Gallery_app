@@ -124,6 +124,7 @@ const Images = () => {
                             alt={imgInfo.name}
                             width={300}
                             onClick={() => FullImageModal(imgInfo.url)}
+                            loading="lazy"
                           />
                         </Link>
                         <div className="dlt_div">
