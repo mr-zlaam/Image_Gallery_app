@@ -1,9 +1,9 @@
 .main_form {
-  animation: home ease-in-out backwards 0.5s;
+  animation: home ease-in-out backwards 0.3s;
 }
 
 .switch {
-  animation: home ease-in-out backwards 0.5s;
+  animation: home ease-in-out backwards 0.3s;
 }
 
 .signin_signout {

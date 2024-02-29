@@ -53,18 +53,18 @@ const Login = () => {
   };
   return (
     <>
-      <div className="w-fit m-auto relative top-10 switch">
+      <div className="relative m-auto w-fit top-10 switch">
         <ModeSwitcher />
       </div>
       {loading ? (
         <div className="h-[80vh] flex justify-center items-center flex-col">
           <Loader />
-          <span className="text-sm mt-3 font-semibold ">Wait a Moment...</span>
+          <span className="mt-3 text-sm font-semibold ">Wait a Moment...</span>
         </div>
       ) : (
-        <div className="main_form flex justify-center items-center h-[85vh] flex-col">
+        <div className="main_form flex justify-center items-center h-[96vh]  flex-col overflow-auto">
           <div
-            className={` form h-[50vh] ${
+            className={` form h-[400px] ${
               isDarkMode ? "bg-black/30" : "light_mode"
             }  rounded-lg w-[375px] flex flex-col justify-center items-center px-5 ${
               isDarkMode ? "shadow_dark" : "shadow_light"
@@ -97,10 +97,10 @@ const Login = () => {
               type="password"
               className={`${isDarkMode ? "input_dark" : "input_light"}`}
             />
-            <button onClick={LoginIntoApp} className="signin_signout my-1">
+            <button onClick={LoginIntoApp} className="my-1 signin_signout">
               Login
             </button>
-            <p className="font-bold  w-full text-sm text-center  ">
+            <p className="w-full text-sm font-bold text-center ">
               Didn't have an Account?
               <Link to={"/SignUp"} className="text-blue-400 ">
                 {" "}
@@ -108,13 +108,13 @@ const Login = () => {
               </Link>
             </p>
             <div className="relative  h-[5vh] w-full">
-              <p className=" py-2  text-sm font-bold text-center  w-full absolute top-0 h-full">
+              <p className="absolute top-0 w-full h-full py-2 text-sm font-bold text-center ">
                 {inputFieldError && inputFieldError}
               </p>
-              <p className=" py-2  text-sm font-bold text-center  w-full absolute top-0 h-full ">
+              <p className="absolute top-0 w-full h-full py-2 text-sm font-bold text-center ">
                 {successMsg && successMsg}
               </p>
-              <p className=" py-2  text-sm font-bold text-center  w-full absolute top-0 h-full ">
+              <p className="absolute top-0 w-full h-full py-2 text-sm font-bold text-center ">
                 {catchError && catchError}
               </p>
             </div>
